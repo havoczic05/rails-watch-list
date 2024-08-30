@@ -1,23 +1,53 @@
-<div class="container mt-5 p-5">
-<h1 class="text-center">List details</h1>
-<div class="row justify-content-between">
-  <div class="card col-4 my-5 mx-2">
-    <div class="card-body">
-      <h4 class="card-title text-center"><%= @list.name %></h5>
-      <div class="d-flex justify-content-center">
-      <%# <%= link_to "Add to list", new_list_bookmark_path(@list), class: "btn btn-primary mx-1" %>
-      <%= link_to "Watch list", lists_path, class: "btn btn-secondary mx-1" %>
-      </div>
-    </div>
-  </div>
-  </div>
-    <div class="card col-8 flex-grow-1 my-5 mx-2" style="width: 18rem;">
-    <ul class="list-group list-group-flush">
-    <% @movies.each do |movie| %>
-      <li class="list-group-item d-flex justify-content-end"><span class="flex-grow-1"><em>"<%= movie.title %>"</em>
-      <% end %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "My lists", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <%# else %>
+          <!--li class="nav-item"-->
+            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <!--/li-->
+        <%# end %>
       </ul>
     </div>
+  </div>
+</div>
 
+<div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <%= @list.name %>
+</div>
+
+<div class="container p-5" >
+<%= link_to "Add movie to this list", new_list_bookmark_path(@list), class: "btn btn-primary m-2" %>
+<%= link_to "Return to Watch List", lists_path, class: "btn btn-secondary m-2" %>
+  <div class="cards">
+    <% @movies.each do |movie| %>
+    <div class="card-category m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://plus.unsplash.com/premium_photo-1710522706751-c2f0c76cc5fd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+      <%= movie.title %>
+    </div>
+    <% end %>
   </div>
 </div>

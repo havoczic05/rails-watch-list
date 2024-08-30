@@ -1,16 +1,58 @@
-<div class="container mt-5 p-5 d-flex flex-column align-items-center">
-  <h1 class="text-center"><strong>Watch List</strong></h1>
-    <div class="row w-100">
-  <div class="col-8 m-5 w-100">
-    <ul class="list-group">
-      <% @lists.each do |list|%>
-      <li class="list-group-item">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "My lists", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%# link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <%# else %>
+          <!--li class="nav-item"-->
+            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <!--/li-->
+        <%# end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://plus.unsplash.com/premium_photo-1710522706751-c2f0c76cc5fd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);">
+  <div class="container">
+    <h1><strong>Watch List</strong></h1>
+    <p>Show my all time watch list and preferred movies</p>
+  </div>
+</div>
+
+<div class= "container p-5">
+  <%# <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Breakfast
+  </div> %>
+  <%= link_to "Add list", new_list_path, class: "btn btn-success mb-4"%>
+  <div class="cards">
+  <% @lists.each do |list|%>
+      <div class="card-category mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://t4.ftcdn.net/jpg/02/89/92/79/360_F_289927915_iEiyin8mOHIzmjnDdwwrdIIiB4PZG65p.jpg)">
           <%= link_to list.name, list_path(list), class: "text-decoration-none"%>
-      </li>
+      </div>
       <% end %>
-    </ul>
-    <br>
-  </div>
-  </div>
-  <%= link_to "Add list", new_list_path, class: "btn btn-primary"%>
-  </div>
+    </div>
+</div>
