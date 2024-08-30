@@ -1,0 +1,15 @@
+<div class="container mt-5 p-5">
+<h1 class="text-center">Movie details</h1>
+<div class="row justify-content-between">
+  <div class="card col-4 my-5 mx-2">
+    <div class="card-body">
+      <h4 class="card-title text-center"><%= @movie.title %></h5>
+      <h6 class="card-subtitle my-3 text-muted text-center"><%= @movie.overview %></h6>
+      <p class="card-text"><em><%= @movie.rating %></em></p>
+      <div class="d-flex justify-content-center">
+      <%# <%= link_to "Add to list", new_movie_bookmark_path(@movie), class: "btn btn-primary mx-1" %>
+      <%= link_to "Return to list", movies_path, class: "btn btn-secondary mx-1" %>
+      </div>
+    </div>
+  </div>
+</div>

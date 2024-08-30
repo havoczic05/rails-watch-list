@@ -1,0 +1,7 @@
+<%= simple_form_for @list do |f| %>
+  <%= f.input :name %>
+  <div class="d-flex justify-content-center">
+    <%= f.button :submit, class: "btn btn-primary mx-3" %>
+    <%= link_to "Watch List", lists_path, class: "btn btn-secondary mx-3"%>
+  </div>
+<% end %>
